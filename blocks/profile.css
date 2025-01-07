@@ -8,8 +8,8 @@
 
 .profile__avatar {
   margin-right: 20px;
-  border-radius: 8px; /* Slightly rounded corners */
-  object-fit: cover; /* Ensures the image fits nicely inside the rounded frame */
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .profile__column {
