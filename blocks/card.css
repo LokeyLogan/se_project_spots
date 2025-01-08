@@ -3,6 +3,11 @@
   border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
 }
 
+.card__title {
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+
 .card__image {
   height: 413px;
   width: 413px;
@@ -24,4 +29,10 @@
   border: none;
   background-color: transparent;
   opacity: 40%;
+}
+
+@media screen and (max-width: 627px) {
+  .card__image {
+    height: 288px;
+  }
 }
