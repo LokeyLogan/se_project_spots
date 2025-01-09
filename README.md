@@ -45,4 +45,4 @@ The way you'll do this at work is by exporting images directly from Figma — we
 
 ## Deployment
 
-Link to Github pages:
+Link to Github pages: https://lokeylogan.github.io/se_project_spots/
