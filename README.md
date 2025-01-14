@@ -1,4 +1,4 @@
-# Project 3: Spots
+# Project 3: Se_project_Spots
 
 ### Overview
 
@@ -8,7 +8,7 @@
 
 **Intro**
 
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+This project is a media webpage. It uses grids, Responsive design, and our breif was figma.
 
 **Figma**
 

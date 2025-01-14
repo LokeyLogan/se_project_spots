@@ -3,6 +3,12 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+}
+
+.card__title {
+  margin: 0;
+  padding: 0;
 }
 
 .cards__list {
@@ -15,5 +21,3 @@
   align-items: center;
   gap: 40px 20px;
 }
-
-@media screen and (max-width: 627px);
