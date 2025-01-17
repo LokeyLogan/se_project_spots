@@ -21,3 +21,5 @@ The way you'll do this at work is by exporting images directly from Figma — we
 ## Deployment
 
 Link to Github pages: https://lokeylogan.github.io/se_project_spots/
+
+Link To Video: https://drive.google.com/file/d/1uUTT4dyd_Ap_5ckY73Dp011ntRKMuBL8/view?usp=sharing
