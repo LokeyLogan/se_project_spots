@@ -57,7 +57,7 @@
   margin-top: auto;
   display: flex;
   align-items: center;
-  padding: 6px 12px;
+  padding: 0;
   font-size: 16px;
   line-height: 16px;
   gap: 8px;
@@ -89,7 +89,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: opacity 0.3s ease;
-  width: 129px;
+  width: 149px;
   height: 52px;
   align-self: flex-end;
   margin-top: auto;
