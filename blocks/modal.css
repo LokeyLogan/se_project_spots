@@ -9,11 +9,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
   padding: 0 20px;
+  visibility: hidden;
 }
 
-.modal__opened {
+.modal_opened {
+  visibility: visible;
 }
 
 .modal__container {
