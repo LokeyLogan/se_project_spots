@@ -32,9 +32,30 @@ const profileDescription = document.querySelector(".profile__description");
 
 // Select modal and its elements
 const editProfileModal = document.querySelector("#edit-profile-modal");
+const editFormElement = editProfileModal.querySelector(".modal__form");
 const editModalDescription = editProfileModal.querySelector(
   "#profile-description-input"
 );
+
+const cardTemplate = document.querySelector("#card-template");
+const cardsList = document.querySelector(".cards__list");
+
+function getCardElement(data) {
+  console.log(data);
+  const cardElement = cardTemplate.content
+    .querySelector(".card")
+    .cloneNode(true);
+
+  const cardNameElement = cardElement.querySelector(".card__title");
+  const cardImageElement = cardElement.querySelector(".card__image");
+
+  cardNameElement.textContent = data.name;
+  cardImageElement.src = data.link;
+  cardImageElement.alt = data.name;
+
+  return cardElement;
+}
+
 const editModalCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const editModalNameInput = editProfileModal.querySelector(
   "#profile-name-input"
@@ -52,6 +73,18 @@ function closeModal() {
   editProfileModal.classList.remove("modal_opened");
 }
 
+function handleEditFormSubmit(evt) {
+  evt.preventDefault();
+  profileName.textContent = editModalNameInput.value;
+  profileDescription.textContent = editModalDescription.value;
+}
+
 // Add event listeners to buttons
 profileEditButton.addEventListener("click", openModal);
 editModalCloseBtn.addEventListener("click", closeModal);
+editFormElement.addEventListener("submit", handleEditFormSubmit);
+
+for (let i = 0; i < initialCards.length; i++) {
+  const cardElement = getCardElement(initialCards[i]);
+  cardsList.prepend(cardElement);
+}
