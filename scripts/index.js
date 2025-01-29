@@ -32,7 +32,7 @@ const profileDescription = document.querySelector(".profile__description");
 
 // Select modal and its elements
 const editProfileModal = document.querySelector("#edit-profile-modal");
-const editFormElement = editProfileModal.querySelector(".modal__form");
+const editFormElement = document.forms["edit-profile"];
 const editModalDescription = editProfileModal.querySelector(
   "#profile-description-input"
 );
@@ -77,6 +77,7 @@ function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editModalDescription.value;
+  closeModal();
 }
 
 // Add event listeners to buttons

@@ -13,6 +13,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  white-space: nowrap;
 }
 
 .card__image {
@@ -28,10 +29,13 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 10px;
+  gap: 10px;
+  flex-wrap: nowrap;
 }
 
 .card__like-button {
   color: #212121;
+  margin-left: 12px;
   background-image: url(../images/Union.svg);
   width: 23px;
   height: 20px;
