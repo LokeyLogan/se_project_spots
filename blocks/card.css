@@ -36,7 +36,7 @@
 .card__like-button {
   color: #212121;
   margin-left: 12px; /* Trying to fix Heart issue*/
-  background-image: url(../images/Union.svg);
+  background-image: url(../images/Union.svg) center no-repeat;
   width: 23px;
   height: 20px;
   border: none;
@@ -48,6 +48,15 @@
 
 .card__like-button:hover {
   opacity: 1;
+}
+
+.card__like-button-liked {
+  background-image: url(../images/State_Liked.svg);
+  opacity: 1;
+}
+
+.card__like-button-liked:hover {
+  background-image: url(../images/State_State4.svg);
 }
 
 @media screen and (max-width: 627px) {

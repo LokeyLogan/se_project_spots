@@ -27,6 +27,41 @@
   border-radius: 8px;
 }
 
+.modal__container_type_preview {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the image */
+  justify-content: center;
+  max-width: 90vw;
+  max-height: 90vh;
+  padding: 0;
+  background-color: transparent;
+}
+
+.modal__caption {
+  position: absolute;
+  bottom: 15px; /* Moves the caption higher inside the image */
+  left: 15px; /* Aligns the caption inside the image */
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background for readability */
+  color: #ffffff; /* White text */
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  max-width: 75%; /* Keeps the text from stretching too wide */
+}
+
+.modal__image {
+  width: 991.5px;
+  height: 661px;
+  max-width: 80vw;
+  max-height: 80vh;
+  display: block;
+  margin: auto;
+  border-radius: 8px;
+}
+
 .modal__close-btn {
   position: absolute;
   width: 40px;
@@ -43,6 +78,12 @@
 .modal__close-btn:hover {
   opacity: 1;
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.modal__close-btn-preview {
+  background-image: url(../images/Light_Close-btn.svg);
+  top: 0;
+  opacity: 1;
 }
 
 .modal__title {
