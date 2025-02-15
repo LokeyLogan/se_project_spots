@@ -40,6 +40,9 @@ const editModalDescription = editProfileModal.querySelector(
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaption = previewModal.querySelector(".modal__caption");
+const previewModalCloseBtn = previewModal.querySelector(
+  ".modal__close-btn-preview"
+);
 
 const cardModal = document.querySelector("#add-card-modal");
 const cardForm = cardModal.querySelector(".modal__form");
@@ -127,6 +130,10 @@ cardModalButton.addEventListener("click", () => {
 
 cardModalCloseBtn?.addEventListener("click", () => {
   closeModal(cardModal);
+});
+
+previewModalCloseBtn.addEventListener("click", () => {
+  closeModal(previewModal);
 });
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);

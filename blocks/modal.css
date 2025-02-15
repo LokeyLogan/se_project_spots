@@ -43,13 +43,14 @@
   position: absolute;
   bottom: 15px; /* Moves the caption higher inside the image */
   left: 15px; /* Aligns the caption inside the image */
-  background-color: rgba(0, 0, 0, 0.7); /* Darker background for readability */
+  background-color: rgba(0, 0, 0, 0.75); /* Darker background for readability */
   color: #ffffff; /* White text */
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-size: 14px;
   padding: 8px 12px;
   border-radius: 5px;
   max-width: 75%; /* Keeps the text from stretching too wide */
+  white-space: nowrap; /* Prevents text from wrapping */
 }
 
 .modal__image {
