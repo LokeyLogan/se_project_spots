@@ -25,13 +25,11 @@ const initialCards = [
   },
 ];
 
-// Select necessary DOM elements
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const cardModalButton = document.querySelector(".profile__add-btn");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
-// Select modal and its elements
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editFormElement = document.forms["edit-profile"];
 const editModalDescription = editProfileModal.querySelector(
@@ -55,7 +53,6 @@ const cardsList = document.querySelector(".cards__list");
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  //TODO - Make image appear when adding card
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
@@ -63,7 +60,6 @@ function handleAddCardSubmit(evt) {
 }
 
 function getCardElement(data) {
-  console.log(data);
   const cardElement = cardTemplate.content
     .querySelector(".card")
     .cloneNode(true);
@@ -77,7 +73,7 @@ function getCardElement(data) {
   cardImageElement.alt = data.name;
 
   cardLikeButton.addEventListener("click", () => {
-    cardLikeButton.classList.toggle("card__like-button_liked");
+    cardLikeButton.classList.toggle("card__like-button-liked");
   });
 
   cardImageElement.addEventListener("click", () => {
@@ -86,7 +82,6 @@ function getCardElement(data) {
     previewModalImageEl.alt = data.name;
     previewModalCaption.textContent = data.name;
   });
-  //TODO - set the listener on delete button
 
   return cardElement;
 }
@@ -96,12 +91,10 @@ const editModalNameInput = editProfileModal.querySelector(
   "#profile-name-input"
 );
 
-// Function to open the modal
 function openModal(modal) {
   modal.classList.add("modal_opened");
 }
 
-// Function to close the modal
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
@@ -113,7 +106,6 @@ function handleEditFormSubmit(evt) {
   closeModal(editProfileModal);
 }
 
-// Add event listeners to buttons
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescription.value = profileDescription.textContent;
@@ -140,7 +132,6 @@ editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
 initialCards.forEach((item) => {
-  console.log(item);
   const cardElement = getCardElement(item);
   cardsList.prepend(cardElement);
 });

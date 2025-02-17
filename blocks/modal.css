@@ -40,17 +40,20 @@
 }
 
 .modal__caption {
-  position: absolute;
-  bottom: 15px; /* Moves the caption higher inside the image */
-  left: 15px; /* Aligns the caption inside the image */
-  background-color: rgba(0, 0, 0, 0.75); /* Darker background for readability */
-  color: #ffffff; /* White text */
+  position: relative;
+  margin-top: 10px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-size: 14px;
   padding: 8px 12px;
   border-radius: 5px;
-  max-width: 75%; /* Keeps the text from stretching too wide */
-  white-space: nowrap; /* Prevents text from wrapping */
+  max-width: 90%; /* ✅ Keeps it within modal width */
+  text-align: left;
+  white-space: normal;
+  width: fit-content;
+  align-self: flex-start;
+  margin-left: 150px; /* ✅ Moves it slightly to the right */
 }
 
 .modal__image {
