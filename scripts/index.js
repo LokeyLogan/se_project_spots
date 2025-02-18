@@ -53,9 +53,25 @@ const cardsList = document.querySelector(".cards__list");
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
+
+  const inputValues = {
+    name: cardNameInput.value.trim(),
+    link: cardLinkInput.value.trim(),
+  };
+
+  // Prevent adding empty cards
+  if (!inputValues.name || !inputValues.link) {
+    alert("Please enter both a name and a valid image URL.");
+    return;
+  }
+
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
+
+  // ✅ Clear inputs after adding the card
+  cardForm.reset();
+
+  // Close the modal
   closeModal(cardModal);
 }
 
@@ -106,6 +122,7 @@ function handleEditFormSubmit(evt) {
   closeModal(editProfileModal);
 }
 
+// Event Listeners
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescription.value = profileDescription.textContent;
@@ -131,6 +148,7 @@ previewModalCloseBtn.addEventListener("click", () => {
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
+// Load initial cards
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.prepend(cardElement);

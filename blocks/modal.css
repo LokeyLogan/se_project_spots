@@ -11,6 +11,7 @@
   justify-content: center;
   padding: 0 20px;
   visibility: hidden;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 
 .modal_opened {
@@ -165,5 +166,47 @@
 
   .modal__submit-btn {
     width: 100%;
+  }
+
+  .modal__container_type_preview {
+    max-width: 90vw; /* Matches card width */
+    max-height: 80vh;
+    padding: 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal__image {
+    width: 100%; /* Ensures it matches card width */
+    max-width: 280px; /* Adjust width to align with the card */
+    max-height: 60vh; /* Prevents excessive height */
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .modal__close-btn-preview {
+    width: 36px;
+    height: 36px;
+    top: 10px; /* Moves it slightly above */
+    right: 30px;
+  }
+
+  .modal__caption {
+    position: relative;
+    text-align: left; /* Aligns text to the left */
+    margin: 10px 0 0 5px;
+  }
+
+  .modal__close-btn-preview {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: -30px; /* Moves it a few pixels above the image */
+    right: 0; /* Moves it to the far right of the image */
+    z-index: 10; /* Ensures it stays on top */
   }
 }
