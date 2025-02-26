@@ -73,10 +73,13 @@
   border: none;
   background-image: Url(../images/Trash_grey.svg);
   background-size: contain;
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .card__delete-button:hover {
   background-image: url(../images/Trash_Liked.svg);
+  opacity: 1;
 }
 
 @media screen and (max-width: 627px) {
@@ -88,5 +91,9 @@
     max-width: 288px;
     font-size: 16px;
     line-height: 16px;
+  }
+
+  .card__like-button {
+    padding: 10px; /* fixes heart cropping issue*/
   }
 }
