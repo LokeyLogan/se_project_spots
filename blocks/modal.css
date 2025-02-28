@@ -11,18 +11,18 @@
   justify-content: center;
   padding: 0 20px;
   visibility: hidden;
+  opacity: 0;
   transition: visibility 0.3s, opacity 0.3s ease-in; /* This "Need correcting" Task Was Already Completed*/
 }
 
 .modal_opened {
   visibility: visible;
+  opacity: 1;
 }
 
 .modal__container {
   background-color: #fff;
   padding: 32px 50px;
-  max-width: 730px;
-  width: 100%;
   box-sizing: border-box;
   position: relative;
   border-radius: 8px;
@@ -34,8 +34,6 @@
   flex-direction: column;
   align-items: center; /* Centers the image */
   justify-content: center;
-  max-width: 90vw;
-  max-height: 90vh;
   padding: 0;
   background-color: transparent;
 }
@@ -54,12 +52,9 @@
   white-space: normal;
   width: fit-content;
   align-self: flex-start;
-  margin-left: 150px; /* ✅ Moves it slightly to the right */
 }
 
 .modal__image {
-  width: 991.5px;
-  height: 661px;
   max-width: 80vw;
   max-height: 80vh;
   display: block;
@@ -88,6 +83,7 @@
 .modal__close-btn-preview {
   background-image: url(../images/Light_Close-btn.svg);
   top: 0;
+  right: -52px;
   opacity: 1;
   cursor: pointer;
 }
@@ -200,13 +196,12 @@
     position: relative;
     color: #ffffff;
     font-weight: 500px;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 20px;
     text-align: left; /* Aligns text to the left */
-    margin: 10px 0 0 5px;
+    margin: 10px 0 0 0;
     border-radius: 8px;
     max-width: 175px;
-    max-height: 27px;
   }
 
   .modal__close-btn-preview {

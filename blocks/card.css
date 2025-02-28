@@ -65,9 +65,8 @@
 
 .card__delete-button {
   position: absolute;
-  background-color: #212121;
+  background-color: rgba(0, 0, 0, 0.3);
   top: 10px;
-  color: white;
   right: 10px;
   width: 32px;
   height: 32px;
@@ -76,7 +75,6 @@
   background-image: Url(../images/Trash_grey.svg);
   background-size: contain;
   cursor: pointer;
-  opacity: 0.3;
 }
 
 .card__delete-button:hover {
