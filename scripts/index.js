@@ -44,7 +44,7 @@ const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaption = previewModal.querySelector(".modal__caption");
 
 const cardModal = document.querySelector("#add-card-modal");
-const cardForm = document.forms["edit-profile"];
+const cardForm = document.querySelector("#add-card-modal .modal__form");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 
