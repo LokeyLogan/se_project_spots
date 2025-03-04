@@ -54,6 +54,7 @@
   white-space: normal;
   width: fit-content;
   align-self: flex-start;
+  left: 170px;
 }
 
 .modal__image {
@@ -84,8 +85,8 @@
 
 .modal__close-btn-preview {
   background-image: url(../images/Light_Close-btn.svg);
-  top: 0;
-  right: -52px;
+  top: -115px;
+  right: 115px;
   opacity: 1;
   cursor: pointer;
 }
@@ -146,7 +147,13 @@
   }
 
   .modal__container {
+    height: auto;
     padding: 12px;
+    margin: 0 auto; /* Centers the modal */
+    max-height: 80vh; /* Prevents excessive vertical space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Keeps content centered */
   }
 
   .modal__title {
@@ -195,7 +202,7 @@
   }
 
   .modal__caption {
-    position: relative;
+    position: absolute;
     color: #ffffff;
     font-weight: 500px;
     font-size: 16px;
@@ -204,6 +211,8 @@
     margin: 10px 0 0 0;
     border-radius: 8px;
     max-width: 175px;
+    left: 15px;
+    bottom: -50px;
   }
 
   .modal__close-btn-preview {
@@ -219,5 +228,6 @@
     padding: 12px;
     width: 100%;
     max-width: 340px;
+    position: relative;
   }
 }
