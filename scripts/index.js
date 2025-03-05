@@ -122,9 +122,7 @@ function handleEditFormSubmit(evt) {
 }
 
 // 🚀 Universal close button handler
-const closeButtons = document.querySelectorAll(
-  ".modal__close-btn, .modal__close-btn-preview"
-);
+const closeButtons = document.querySelectorAll(".modal__close-btn");
 closeButtons.forEach((button) => {
   const modal = button.closest(".modal");
   if (modal) {
