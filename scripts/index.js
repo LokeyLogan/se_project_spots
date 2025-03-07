@@ -45,6 +45,9 @@ const previewModalCaption = previewModal.querySelector(".modal__caption");
 
 const cardModal = document.querySelector("#add-card-modal");
 const cardForm = document.querySelector("#add-card-modal .modal__form");
+const cardSubmitButton = document.querySelector(
+  "#add-card-modal .modal__button"
+);
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 
@@ -98,6 +101,7 @@ function renderCard(item, method = "prepend") {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+  disableButton(cardSubmitButton);
 
   const inputValues = {
     name: cardNameInput.value.trim(),
@@ -114,10 +118,25 @@ function handleAddCardSubmit(evt) {
   closeModal(cardModal);
 }
 
+// ✅ FIX: Profile Edit Modal Closes After Clicking "Save"
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
+
+  // Update profile text
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editModalDescription.value;
+
+  // 🛠 FIX: Reset form validation and toggle submit button
+  const inputList = Array.from(
+    editFormElement.querySelectorAll(".modal__input")
+  );
+  resetValidation(editFormElement, inputList);
+  toggleButtonState(
+    inputList,
+    editFormElement.querySelector(".modal__submit-btn")
+  );
+
+  // ✅ FIX: Close modal after successful submission
   closeModal(editProfileModal);
 }
 

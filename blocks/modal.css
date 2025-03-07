@@ -151,6 +151,12 @@
   transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
+.modal__submit-btn_disabled {
+  background-color: grey;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 @media screen and (max-width: 627px) {
   .modal {
     padding: 0 10px;
