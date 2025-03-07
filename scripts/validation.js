@@ -12,7 +12,7 @@ const showInputError = (formElement, inputElement, errorMessage, settings) => {
   if (errorElement) {
     errorElement.textContent = errorMessage;
   }
-  inputElement.classList.add(settings.inputErrorClass); // ✅ Now using settings object
+  inputElement.classList.add(settings.inputErrorClass);
 };
 
 const hideInputError = (formElement, inputElement, settings) => {
@@ -20,7 +20,7 @@ const hideInputError = (formElement, inputElement, settings) => {
   if (errorElement) {
     errorElement.textContent = "";
   }
-  inputElement.classList.remove(settings.inputErrorClass); // ✅ Now using settings object
+  inputElement.classList.remove(settings.inputErrorClass);
 };
 
 const checkInputValidity = (inputElement, settings) => {
@@ -40,8 +40,9 @@ const hasInvalidInput = (inputList) =>
   inputList.some((input) => !input.validity.valid);
 
 const disableButton = (buttonElement, settings) => {
+  if (!buttonElement) return;
   buttonElement.disabled = true;
-  buttonElement.classList.add(settings.inactiveButtonClass); // ✅ Now using settings object
+  buttonElement.classList.add(settings.inactiveButtonClass);
 };
 
 const toggleButtonState = (inputList, buttonElement, settings) => {
@@ -54,23 +55,23 @@ const toggleButtonState = (inputList, buttonElement, settings) => {
     disableButton(buttonElement, settings);
   } else {
     buttonElement.disabled = false;
-    buttonElement.classList.remove(settings.inactiveButtonClass); // ✅ Now using settings object
+    buttonElement.classList.remove(settings.inactiveButtonClass);
   }
 };
 
-const resetValidation = (formElement, inputList, settings) => {
+// ✅ New: Function to reset validation errors before opening a modal
+const resetValidation = (formElement, settings) => {
+  const inputList = Array.from(
+    formElement.querySelectorAll(settings.inputSelector)
+  );
   const buttonElement = formElement.querySelector(
     settings.submitButtonSelector
   );
-  if (!buttonElement) {
-    console.warn(
-      "resetValidation: No submit button found for form",
-      formElement
-    );
-    return;
-  }
 
-  inputList.forEach((input) => hideInputError(formElement, input, settings));
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement, settings);
+  });
+
   toggleButtonState(inputList, buttonElement, settings);
 };
 
@@ -105,4 +106,5 @@ const enableValidation = (settings) => {
   formList.forEach((formElement) => setEventListener(formElement, settings));
 };
 
+// ✅ Call validation function
 enableValidation(settings);
