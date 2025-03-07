@@ -1,3 +1,5 @@
+//TODO - pass settings object to the validation functions that are called in this file
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -101,7 +103,7 @@ function renderCard(item, method = "prepend") {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  disableButton(cardSubmitButton);
+  disableButton(cardSubmitButton, settings); // ✅ Passed settings
 
   const inputValues = {
     name: cardNameInput.value.trim(),
@@ -115,6 +117,13 @@ function handleAddCardSubmit(evt) {
 
   renderCard(inputValues, "prepend");
   cardForm.reset();
+
+  // ✅ Reset validation using settings
+  const inputList = Array.from(
+    cardForm.querySelectorAll(settings.inputSelector)
+  );
+  resetValidation(cardForm, inputList, settings);
+
   closeModal(cardModal);
 }
 
@@ -126,14 +135,15 @@ function handleEditFormSubmit(evt) {
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editModalDescription.value;
 
-  // 🛠 FIX: Reset form validation and toggle submit button
+  // 🛠 FIX: Reset form validation and toggle submit button using settings
   const inputList = Array.from(
-    editFormElement.querySelectorAll(".modal__input")
+    editFormElement.querySelectorAll(settings.inputSelector)
   );
-  resetValidation(editFormElement, inputList);
+  resetValidation(editFormElement, inputList, settings);
   toggleButtonState(
     inputList,
-    editFormElement.querySelector(".modal__submit-btn")
+    editFormElement.querySelector(settings.submitButtonSelector),
+    settings
   );
 
   // ✅ FIX: Close modal after successful submission
