@@ -52,14 +52,6 @@ const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-}
-
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-}
-
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -99,7 +91,6 @@ function renderCard(item, method = "prepend") {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  disableButton(cardSubmitButton, settings);
 
   const inputValues = {
     name: cardNameInput.value.trim(),
@@ -114,7 +105,10 @@ function handleAddCardSubmit(evt) {
   renderCard(inputValues, "prepend");
   cardForm.reset();
 
-  disableButton(cardForm, settings);
+  // ✅ FIX: Enable the submit button again
+  const submitButton = cardForm.querySelector(".modal__submit-btn");
+  submitButton.disabled = false;
+  submitButton.classList.remove("modal__submit-btn_disabled");
 
   closeModal(cardModal);
 }
@@ -131,20 +125,6 @@ function handleEditFormSubmit(evt) {
   const inputList = Array.from(
     editFormElement.querySelectorAll(settings.inputSelector)
   );
-  resetValidation(editFormElement, settings);
-  function handleEditFormSubmit(evt) {
-    evt.preventDefault();
-
-    // Update profile text
-    profileName.textContent = editModalNameInput.value;
-    profileDescription.textContent = editModalDescription.value;
-
-    // 🛠 FIX: Only reset validation, no need for toggleButtonState
-    resetValidation(editFormElement, settings);
-
-    // ✅ Close modal after successful submission
-    closeModal(editProfileModal);
-  }
 
   // ✅ FIX: Close modal after successful submission
   closeModal(editProfileModal);
@@ -200,7 +180,19 @@ function handleEscKey(event) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  document.addEventListener("keydown", handleEscKey); // ✅ Add listener when modal opens
+  document.addEventListener("keydown", handleEscKey);
+
+  // ✅ FIX: Reset all inputs and enable submit button when opening
+  const form = modal.querySelector("form");
+  if (form) {
+    form.reset(); // Clear inputs
+    resetValidation(form, settings); // Remove error styles
+    const submitBtn = form.querySelector(".modal__submit-btn");
+    if (submitBtn) {
+      submitBtn.classList.remove("modal__submit-btn_disabled");
+      submitBtn.disabled = false;
+    }
+  }
 }
 
 function closeModal(modal) {
