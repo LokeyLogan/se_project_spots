@@ -105,10 +105,8 @@ function handleAddCardSubmit(evt) {
   renderCard(inputValues, "prepend");
   cardForm.reset();
 
-  // ✅ FIX: Enable the submit button again
-  const submitButton = cardForm.querySelector(".modal__submit-btn");
-  submitButton.disabled = false;
-  submitButton.classList.remove("modal__submit-btn_disabled");
+  // ✅ FIX: Disable the submit button after successful submission
+  disableButton(cardSubmitButton, settings);
 
   closeModal(cardModal);
 }
@@ -181,18 +179,6 @@ function handleEscKey(event) {
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscKey);
-
-  // ✅ FIX: Reset all inputs and enable submit button when opening
-  const form = modal.querySelector("form");
-  if (form) {
-    form.reset(); // Clear inputs
-    resetValidation(form, settings); // Remove error styles
-    const submitBtn = form.querySelector(".modal__submit-btn");
-    if (submitBtn) {
-      submitBtn.classList.remove("modal__submit-btn_disabled");
-      submitBtn.disabled = false;
-    }
-  }
 }
 
 function closeModal(modal) {
