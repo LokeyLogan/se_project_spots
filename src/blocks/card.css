@@ -14,7 +14,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  white-space: nowrap; /* Trying to fix Heart issue*/
 }
 
 .card__image {
@@ -30,14 +29,14 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 10px;
-  gap: 10px; /* Trying to fix Heart issue*/
-  flex-wrap: nowrap; /* Trying to fix Heart issue*/
+  gap: 10px;
+  flex-wrap: nowrap;
 }
 
 .card__like-button {
   color: #212121;
-  margin-left: 12px; /* Trying to fix Heart issue*/
-  background-image: url(../../images/Union.svg);
+  margin-left: 12px;
+  background-image: url(../images/Union.svg);
   background-position: center;
   background-repeat: no-repeat;
   width: 23px;
@@ -47,7 +46,6 @@
   opacity: 0.4;
   cursor: pointer;
   transition: opacity 0.3s ease, transform 0.2s ease;
-  background-repeat: no-repeat;
 }
 
 .card__like-button:hover {
@@ -72,7 +70,7 @@
   height: 32px;
   border-radius: 50%;
   border: none;
-  background-image: Url(../images/Trash_grey.svg);
+  background-image: url(../images/Trash_grey.svg);
   background-size: contain;
   cursor: pointer;
 }
@@ -94,6 +92,6 @@
   }
 
   .card__like-button {
-    padding: 10px; /* fixes heart cropping issue*/
+    padding: 10px;
   }
 }

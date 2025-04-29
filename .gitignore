@@ -1,5 +1,4 @@
-<<<<<<< HEAD
+node_Modules/
+dist/
+
 .DS_Store
-=======
-.DS_Store
->>>>>>> a11d015 (First Update)

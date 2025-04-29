@@ -1,3 +1,10 @@
+import "./index.css";
+import {
+  enableValidation,
+  settings,
+  resetValidation,
+} from "../scripts/validation.js";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -83,7 +90,6 @@ function getCardElement(data) {
   return cardElement;
 }
 
-// 🚀 Universal function to render a card with customizable insertion method
 function renderCard(item, method = "prepend") {
   const cardElement = getCardElement(item);
   cardsList[method](cardElement);
@@ -104,62 +110,37 @@ function handleAddCardSubmit(evt) {
 
   renderCard(inputValues, "prepend");
   cardForm.reset();
-
-  // ✅ FIX: Disable the submit button after successful submission
   disableButton(cardSubmitButton, settings);
-
   closeModal(cardModal);
 }
 
-// ✅ FIX: Profile Edit Modal Closes After Clicking "Save"
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-
-  // Update profile text
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editModalDescription.value;
-
-  // 🛠 FIX: Reset form validation and toggle submit button using settings
-  const inputList = Array.from(
-    editFormElement.querySelectorAll(settings.inputSelector)
-  );
-
-  // ✅ FIX: Close modal after successful submission
   closeModal(editProfileModal);
 }
 
-// 🚀 Universal close button handler
-const closeButtons = document.querySelectorAll(".modal__close-btn");
-closeButtons.forEach((button) => {
+document.querySelectorAll(".modal__close-btn").forEach((button) => {
   const modal = button.closest(".modal");
-  if (modal) {
-    button.addEventListener("click", () => closeModal(modal));
-  }
+  button.addEventListener("click", () => closeModal(modal));
 });
 
-// ✅ Updated: Reset validation when opening edit profile modal
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescription.value = profileDescription.textContent;
-
-  // ✅ Reset validation before opening the modal
   resetValidation(editFormElement, settings);
-
   openModal(editProfileModal);
 });
 
 cardModalButton.addEventListener("click", () => openModal(cardModal));
 
-// ✅ Form submissions
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
-// 📥 Load initial cards using the new renderCard function
 initialCards.forEach((item) => renderCard(item, "append"));
 
-const modals = document.querySelectorAll(".modal");
-
-modals.forEach((modal) => {
+document.querySelectorAll(".modal").forEach((modal) => {
   modal.addEventListener("click", (event) => {
     if (event.target === modal) {
       closeModal(modal);
@@ -170,9 +151,7 @@ modals.forEach((modal) => {
 function handleEscKey(event) {
   if (event.key === "Escape") {
     const openModal = document.querySelector(".modal_opened");
-    if (openModal) {
-      closeModal(openModal);
-    }
+    if (openModal) closeModal(openModal);
   }
 }
 
@@ -183,5 +162,7 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", handleEscKey); // ✅ Remove listener when modal closes
+  document.removeEventListener("keydown", handleEscKey);
 }
+
+enableValidation(settings);

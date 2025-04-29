@@ -1,4 +1,4 @@
-const settings = {
+export const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-btn",
@@ -9,17 +9,13 @@ const settings = {
 
 const showInputError = (formElement, inputElement, errorMessage, settings) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  if (errorElement) {
-    errorElement.textContent = errorMessage;
-  }
+  if (errorElement) errorElement.textContent = errorMessage;
   inputElement.classList.add(settings.inputErrorClass);
 };
 
 const hideInputError = (formElement, inputElement, settings) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  if (errorElement) {
-    errorElement.textContent = "";
-  }
+  if (errorElement) errorElement.textContent = "";
   inputElement.classList.remove(settings.inputErrorClass);
 };
 
@@ -46,11 +42,7 @@ const disableButton = (buttonElement, settings) => {
 };
 
 const toggleButtonState = (inputList, buttonElement, settings) => {
-  if (!buttonElement) {
-    console.warn("toggleButtonState: buttonElement is undefined");
-    return;
-  }
-
+  if (!buttonElement) return;
   if (hasInvalidInput(inputList)) {
     disableButton(buttonElement, settings);
   } else {
@@ -59,7 +51,6 @@ const toggleButtonState = (inputList, buttonElement, settings) => {
   }
 };
 
-// ✅ New: Function to reset validation errors before opening a modal
 const resetValidation = (formElement, settings) => {
   const inputList = Array.from(
     formElement.querySelectorAll(settings.inputSelector)
@@ -68,10 +59,9 @@ const resetValidation = (formElement, settings) => {
     settings.submitButtonSelector
   );
 
-  inputList.forEach((inputElement) => {
-    hideInputError(formElement, inputElement, settings);
-  });
-
+  inputList.forEach((inputElement) =>
+    hideInputError(formElement, inputElement, settings)
+  );
   toggleButtonState(inputList, buttonElement, settings);
 };
 
@@ -83,28 +73,19 @@ const setEventListener = (formElement, settings) => {
     settings.submitButtonSelector
   );
 
-  if (!buttonElement) {
-    console.warn(
-      "setEventListener: No submit button found in form",
-      formElement
-    );
-    return;
-  }
-
   toggleButtonState(inputList, buttonElement, settings);
 
   inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", function () {
+    inputElement.addEventListener("input", () => {
       checkInputValidity(inputElement, settings);
       toggleButtonState(inputList, buttonElement, settings);
     });
   });
 };
 
-const enableValidation = (settings) => {
+export const enableValidation = (settings) => {
   const formList = document.querySelectorAll(settings.formSelector);
   formList.forEach((formElement) => setEventListener(formElement, settings));
 };
 
-// ✅ Call validation function
-enableValidation(settings);
+export { resetValidation };
