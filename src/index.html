@@ -6,34 +6,25 @@
     <meta name="description" content="" />
     <meta name="author" content="Logan Thomas" />
     <meta name="keywords" content="HTML, CSS, " />
-    <link rel="icon" type="image/png" href="./favicon.ico" />
     <title>Spots</title>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img
-          src="./images/Logo_(1).svg"
-          alt="Spots Logo"
-          class="header__logo"
-        />
+        <img class="header__logo" alt="Spots Logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="./images/avatar.jpg"
-            alt="Bessie Coleman"
-            class="profile__avatar"
-          />
+          <img class="profile__avatar" alt="Bessie Coleman" />
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-btn">
-              <img src="./images/Group_2.svg" alt="pencil icon" />Edit Profile
+              <img alt="pencil icon" />Edit Profile
             </button>
           </div>
           <button type="button" class="profile__add-btn">
-            <img src="./images/Group_26.svg" alt="plus icon" />New Post
+            <img alt="plus icon" />New Post
           </button>
         </section>
         <section class="cards page__section">
@@ -54,11 +45,12 @@
       <footer class="footer">
         <p class="footer__copyright">&copy; 2024 Logan T</p>
       </footer>
+
       <!-- Modals -->
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
-            <img src="./images/Group_27.svg" alt="close icon" />
+            <img alt="close icon" />
           </button>
           <h2 class="modal__title">Edit profile</h2>
           <form name="edit-profile" class="modal__form" novalidate>
@@ -86,7 +78,10 @@
                 minlength="2"
                 maxlength="200"
               />
-              <span id="profile-description-input-error" class="modal__error"></span>
+              <span
+                id="profile-description-input-error"
+                class="modal__error"
+              ></span>
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
@@ -96,7 +91,7 @@
       <div class="modal" id="add-card-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
-            <img src="./images/Group_27.svg" alt="close icon" />
+            <img alt="close icon" />
           </button>
           <h2 class="modal__title">New Post</h2>
           <form name="card__form" class="modal__form" novalidate>
@@ -141,10 +136,11 @@
           <img
             class="modal__image"
             src="https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"
-            alt=""
+            alt="Golden Gate Bridge"
           />
           <p class="modal__caption">Golden Gate Bridge</p>
         </div>
       </div>
+    </div>
   </body>
 </html>

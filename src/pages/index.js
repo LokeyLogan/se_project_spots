@@ -1,41 +1,41 @@
+// CSS and JS module imports
 import "./index.css";
 import {
   enableValidation,
   settings,
   resetValidation,
 } from "../scripts/validation.js";
+import Api from "../utils/Api.js";
 
-const initialCards = [
-  {
-    name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-  {
-    name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-  },
-  {
-    name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-  },
-  {
-    name: "A very long bridge, over the forest and through the trees",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-  },
-  {
-    name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-];
+// 🔽 Image imports
+import avatarImg from "../images/avatar.jpg";
+import logoImg from "../images/Logo_(1).svg";
+import pencilIcon from "../images/Group_2.svg";
+import plusIcon from "../images/Group_26.svg";
+import closeIcon from "../images/Group_27.svg";
 
+// 🔽 Inject images into the DOM
+document.querySelector(".header__logo").src = logoImg;
+document.querySelector(".profile__edit-btn img").src = pencilIcon;
+document.querySelector(".profile__add-btn img").src = plusIcon;
+
+const closeBtns = document.querySelectorAll(".modal__close-btn img");
+closeBtns.forEach((img) => (img.src = closeIcon));
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "b11e468b-3f59-4efb-985e-f8545b79cf07",
+    "Content-Type": "application/json",
+  },
+});
+
+// 🔽 DOM element references
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const cardModalButton = document.querySelector(".profile__add-btn");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
+const avatarImage = document.querySelector(".profile__avatar");
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editFormElement = document.forms["edit-profile"];
@@ -134,11 +134,8 @@ profileEditButton.addEventListener("click", () => {
 });
 
 cardModalButton.addEventListener("click", () => openModal(cardModal));
-
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
-
-initialCards.forEach((item) => renderCard(item, "append"));
 
 document.querySelectorAll(".modal").forEach((modal) => {
   modal.addEventListener("click", (event) => {
@@ -166,3 +163,19 @@ function closeModal(modal) {
 }
 
 enableValidation(settings);
+
+// 🔽 Load cards + user info
+api
+  .getAppInfo()
+  .then(([cards, user]) => {
+    cards.forEach((card) => {
+      renderCard({ name: card.name, link: card.link }, "append");
+    });
+
+    avatarImage.src = user.avatar;
+    profileName.textContent = user.name;
+    profileDescription.textContent = user.about;
+  })
+  .catch((err) => {
+    console.error("Failed to load cards or user info from API:", err);
+  });
