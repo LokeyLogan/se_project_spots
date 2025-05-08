@@ -25,7 +25,8 @@
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-btn">
-              <img alt="pencil icon" />Edit Profile
+              <img alt="pencil icon" />
+              <span class="profile__edit-btn-text">Edit Profile</span>
             </button>
           </div>
           <button type="button" class="profile__add-btn">
@@ -187,18 +188,24 @@
 </div>
     </div>
       <!-- Card Delete Edit Modal -->
-      <div class="modal" id="delete-modal">
-        <div class="modal__container">
-          <button type="button" class="modal__close-btn" aria-label="Close modal">
+      <div class="modal modal_type_delete" id="delete-modal">
+        <div class="modal__container modal__container_type_delete">
+          <button type="button" class="modal__close-btn modal__close-btn_type_delete" aria-label="Close modal">
             <img alt="close icon" />
           </button>
-          <h2 class="modal__title">Are you sure you want to delete this image?</h2>
-          <form name="confirm-delete" class="modal__form" novalidate>
-            <button class="modal__submit-btn" type="submit">Yes, Delete</button>
-            <button class="modal__submit-btn" type="button">Cancel</button>
+          <h2 class="modal__title modal__title_type_delete">Are you sure you want to delete this image?</h2>
+          
+          <form name="confirm-delete" class="modal__form modal__form_type_delete" novalidate>
+            <button class="modal__submit-btn modal__submit-btn_type_confirm-delete" type="submit">
+              Delete
+            </button>
+            <button class="modal__submit-btn modal__submit-btn_type_cancel-delete" type="button">
+              Cancel
+            </button>
           </form>
         </div>
       </div>
+      
   </div>
   </body>
 </html>
