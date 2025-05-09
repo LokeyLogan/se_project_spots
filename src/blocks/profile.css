@@ -68,75 +68,6 @@
   pointer-events: none;
 }
 
-.avatar-modal__container {
-  width: 900px;
-  height: 298px;
-  background-color: #f2f7ff;
-  padding: 24px;
-  border-radius: 12px;
-  overflow: hidden; /* Add this */
-  box-sizing: border-box;
-}
-
-.avatar-modal__title {
-  width: 630px;
-  height: 40px;
-  font-family: Poppins, Arial, Helvetica, sans-serif;
-  font-size: 32px;
-  line-height: 100%;
-  margin-bottom: 16px;
-  color: rgba(33, 33, 33, 1);
-  font-weight: 500;
-  letter-spacing: 0%;
-  padding-bottom: 32px;
-}
-
-.avatar-modal__form {
-  display: flex;
-  flex-direction: column;
-}
-
-.avatar-modal__label {
-  font-family: Poppins, Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  color: rgba(33, 33, 33, 0.7);
-  font-weight: 500;
-  margin-bottom: 12px;
-}
-
-.avatar-modal__input {
-  border: 2px solid #4a90e2;
-  padding: 10px;
-  border-radius: 6px;
-  font-size: 15px;
-  width: 100%;
-  margin-top: 6px;
-  box-sizing: border-box;
-}
-
-.avatar-modal__error {
-  font-size: 12px;
-  color: #d7263d;
-  margin-top: 4px;
-  display: block;
-}
-
-.avatar-modal__submit-btn {
-  background-color: #4a90e2;
-  color: #fff;
-  font-weight: 600;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.avatar-modal__submit-btn:hover {
-  background-color: #357ab7;
-}
-
 .profile__column {
   display: flex;
   flex-direction: column;
@@ -195,7 +126,7 @@
 }
 
 .profile__edit-btn-text {
-  color: #ffffff;
+  color: rgba(33, 33, 33, 1);
   font-weight: 500;
 }
 

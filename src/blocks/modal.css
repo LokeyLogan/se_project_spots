@@ -261,12 +261,14 @@
 }
 
 .avatar-modal__input {
+  padding: 0;
   width: 630px;
   height: 52px;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
+  letter-spacing: normal;
 }
 
 .modal__container_type_delete {
@@ -287,9 +289,25 @@
   gap: 20px;
 }
 
+.modal__submit-btn_type_cancel-delete {
+  color: #212121;
+  background-color: white;
+  transition: background-color 0.3s ease;
+}
+
+.modal__submit-btn_type_cancel-delete:hover {
+  background-color: #212121;
+  color: white;
+}
+
 .modal__submit-btn_type_confirm-delete {
-  background-color: rgba(255, 51, 51, 1);
+  background-color: rgba(255, 101, 101, 1);
   color: rgba(33, 33, 33, 1);
+  transition: background-color 0.3s ease;
+}
+
+.modal__submit-btn_type_confirm-delete:hover {
+  background-color: rgba(255, 51, 51, 1);
 }
 
 .modal__close-btn_type_delete {
@@ -380,5 +398,68 @@
     width: 100%;
     max-width: 340px;
     position: relative;
+  }
+
+  .avatar-modal__container {
+    height: 222px;
+  }
+
+  .avatar-modal__title {
+    margin-bottom: -5px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+  }
+
+  .avatar-modal__input {
+    width: 100%;
+  }
+
+  .modal__container_type_delete {
+    position: relative; /* Ensure it is the reference point for absolute positioning */
+  }
+
+  .avatar-modal__label {
+    margin: 12px 0 20px 0;
+  }
+
+  .modal__container_type_delete {
+    height: 208px;
+    width: 300px;
+    border-radius: 8px;
+  }
+
+  .modal__title_type_delete {
+    position: absolute;
+    top: 12px; /* 12px from the top */
+    left: 50%; /* Start from the middle of the parent */
+    width: 276px; /* Your specified width */
+    transform: translateX(-50%); /* Center it horizontally */
+    text-align: center;
+  }
+
+  .modal__form_type_delete {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center horizontally */
+    gap: 10px; /* Optional spacing between the buttons */
+  }
+
+  .modal__submit-btn_type_confirm-delete {
+    width: 156px;
+    height: 52px;
+    max-width: 260px;
+    margin-top: 75px; /* Adds 20px margin from the title */
+  }
+
+  .modal__submit-btn_type_cancel-delete {
+    width: 156px;
+    height: 52px;
+    max-width: 260px;
+    margin-bottom: 12px; /* Adds 12px margin from the bottom of the container */
+  }
+
+  .modal__close-btn_type_delete {
+    top: -50px;
   }
 }
