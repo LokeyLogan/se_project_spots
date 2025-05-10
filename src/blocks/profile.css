@@ -219,4 +219,8 @@
     width: 100%;
     align-self: center;
   }
+
+  .profile__avatar-btn::after {
+    content-visibility: hidden;
+  }
 }
