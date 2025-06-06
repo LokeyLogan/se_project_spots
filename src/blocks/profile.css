@@ -220,6 +220,22 @@
     align-self: center;
   }
 
+  .profile__pencil-icon {
+    position: relative;
+    max-width: 23.34px;
+    max-height: 23.34px;
+    left: 30px;
+    left: 30px;
+    background-color: rgba(
+      33,
+      33,
+      33,
+      0.6
+    ); /* ✅ 60% opacity dark background */
+    border-radius: 8px; /* optional for rounding */
+    padding: 2px; /* optional spacing around icon */
+  }
+
   .profile__avatar-btn::after {
     content-visibility: hidden;
   }
