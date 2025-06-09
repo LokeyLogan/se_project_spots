@@ -1,3 +1,5 @@
+// index.js
+
 import "./index.css";
 import {
   enableValidation,
@@ -75,6 +77,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const deleteConfirmButton = confirmForm.querySelector(
     "button[type='submit']"
   );
+
+  // 🆕 Cancel delete button listener
+  const cancelDeleteButton = confirmForm.querySelector(
+    ".modal__submit-btn_type_cancel-delete"
+  );
+  cancelDeleteButton.addEventListener("click", () => closeModal(deleteModal));
 
   let selectedCard = null;
   let selectedCardId = null;
