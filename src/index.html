@@ -6,36 +6,34 @@
     <meta name="description" content="" />
     <meta name="author" content="Logan Thomas" />
     <meta name="keywords" content="HTML, CSS, " />
-    <link rel="icon" type="image/png" href="./favicon.ico" />
     <title>Spots</title>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img
-          src="./images/Logo_(1).svg"
-          alt="Spots Logo"
-          class="header__logo"
-        />
+        <img class="header__logo" alt="Spots Logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="./images/avatar.jpg"
-            alt="Bessie Coleman"
-            class="profile__avatar"
-          />
+          <div class="profile__avatar-container">
+            <img class="profile__avatar" alt="Bessie Coleman" />
+            <button class="profile__avatar-btn">
+              <img class="profile__pencil-icon" alt="pencil" />
+            </button>
+          </div>
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-btn">
-              <img src="./images/Group_2.svg" alt="pencil icon" />Edit Profile
+              <img alt="pencil icon" />
+              <span class="profile__edit-btn-text">Edit Profile</span>
             </button>
           </div>
           <button type="button" class="profile__add-btn">
-            <img src="./images/Group_26.svg" alt="plus icon" />New Post
+            <img alt="plus icon" />New Post
           </button>
         </section>
+
         <section class="cards page__section">
           <ul class="cards__list">
             <template id="card-template">
@@ -54,11 +52,12 @@
       <footer class="footer">
         <p class="footer__copyright">&copy; 2024 Logan T</p>
       </footer>
-      <!-- Modals -->
+
+      <!-- Edit Profile Modal -->
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
-            <img src="./images/Group_27.svg" alt="close icon" />
+            <img alt="close icon" />
           </button>
           <h2 class="modal__title">Edit profile</h2>
           <form name="edit-profile" class="modal__form" novalidate>
@@ -86,17 +85,21 @@
                 minlength="2"
                 maxlength="200"
               />
-              <span id="profile-description-input-error" class="modal__error"></span>
+              <span
+                id="profile-description-input-error"
+                class="modal__error"
+              ></span>
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
         </div>
       </div>
 
+      <!-- Add Card Modal -->
       <div class="modal" id="add-card-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
-            <img src="./images/Group_27.svg" alt="close icon" />
+            <img alt="close icon" />
           </button>
           <h2 class="modal__title">New Post</h2>
           <form name="card__form" class="modal__form" novalidate>
@@ -130,21 +133,100 @@
           </form>
         </div>
       </div>
-
+      <!-- Image Preview Modal -->
       <div class="modal" id="preview-modal">
         <div class="modal__image-container">
           <button
             aria-label="Close modal"
             type="button"
             class="modal__close-btn modal__close-btn-preview"
-          ></button>
+          >
+            <img alt="close icon" />
+          </button>
           <img
             class="modal__image"
             src="https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"
-            alt=""
+            alt="Golden Gate Bridge"
           />
           <p class="modal__caption">Golden Gate Bridge</p>
         </div>
       </div>
+
+      <!-- Avatar Edit Modal -->
+      <!-- Avatar Edit Modal -->
+      <div class="modal" id="avatar-modal">
+        <div class="modal__container avatar-modal__container">
+          <button
+            type="button"
+            class="modal__close-btn avatar-modal__close-btn"
+            aria-label="Close modal"
+          >
+            <img alt="close icon" />
+          </button>
+          <h2 class="modal__title avatar-modal__title">Edit profile avatar</h2>
+          <form
+            name="edit-avatar"
+            class="modal__form avatar-modal__form"
+            novalidate
+          >
+            <label
+              for="profile-avatar-input"
+              class="modal__label avatar-modal__label"
+            >
+              Profile Picture
+              <input
+                id="profile-avatar-input"
+                class="modal__input avatar-modal__input"
+                name="avatar"
+                placeholder=" Paste the link to an image"
+                required
+              />
+              <span
+                class="modal__error avatar-modal__error"
+                id="profile-avatar-input-error"
+              ></span>
+            </label>
+            <button
+              class="modal__submit-btn avatar-modal__submit-btn"
+              type="submit"
+            >
+              Save
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- Card Delete Edit Modal -->
+      <div class="modal modal_type_delete" id="delete-modal">
+        <div class="modal__container modal__container_type_delete">
+          <button
+            type="button"
+            class="modal__close-btn modal__close-btn_type_delete"
+            aria-label="Close modal"
+          ></button>
+          <h2 class="modal__title modal__title_type_delete">
+            Are you sure you want to delete this image?
+          </h2>
+
+          <form
+            name="confirm-delete"
+            class="modal__form modal__form_type_delete"
+            novalidate
+          >
+            <button
+              class="modal__submit-btn modal__submit-btn_type_confirm-delete"
+              type="submit"
+            >
+              Delete
+            </button>
+            <button
+              class="modal__submit-btn modal__submit-btn_type_cancel-delete"
+              type="button"
+            >
+              Cancel
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

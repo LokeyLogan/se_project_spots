@@ -19,7 +19,7 @@ module.exports = {
   devServer: {
     static: path.resolve(__dirname, "./dist"),
     compress: true,
-    port: 3000, // ✅ Changed from 8080 to 3000
+    port: 3004, // ✅ Changed from 8080 to 3000
     open: true,
     liveReload: true,
     hot: false,
